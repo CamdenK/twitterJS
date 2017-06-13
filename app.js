@@ -3,7 +3,18 @@ const nunjucks = require('nunjucks')
 const tweetBank = require('./tweetBank.js')
 const app = express()
 const routes = require('./routes')
-app.use('/', routes)
+
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
+var urlencodedParser = bodyParser.urlencoded({extended: false})
+
+app.use('/', jsonParser)
+app.use('/', urlencodedParser)
+
+var socketio = require('socket.io')
+var server = app.listen(3000)
+var io = socketio.listen(server)
+
 
 app.set('view engine', 'html')
 app.engine('html', nunjucks.render)
@@ -14,8 +25,4 @@ app.use(function(request, response, next){
   next()
 })
 
-app.listen(3000, function(){
-  console.log("server listening")
-})
-
-
+app.use('/', routes(io))
