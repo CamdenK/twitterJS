@@ -9,24 +9,4 @@ router.get('/', function (req, res) {
   res.render( 'index', { tweets: tweets } );
 });
 
-router.get('./stylesheets/style.css', function(req, res) {
-    res.sendFile('../public/stylesheets/style.css');
-})
-// router.post('/tweets', function(request, response, next) {
-//   //response.send('')
-// })
-
-
-
-///////////
-// app.get('/', function(request, response){
-//   const people =[{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}, {name: 'Nick'}];
-//   response.render( 'index', {title: 'Hall of Fame', people: people} );
-// })
-
-// app.get('/news', function(request, response){
-//   response.send('News')
-// })
-
-
 module.exports = router;
