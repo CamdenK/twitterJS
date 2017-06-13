@@ -6,7 +6,14 @@ router.use(express.static('public'));
 
 router.get('/', function (req, res) {
   let tweets = tweetBank.list();
-  res.render( 'index', { tweets: tweets } );
+  res.render( 'index', { tweets: tweets, showForm: true} );
 });
+
+router.get('/users/:name', function(req, res) {
+  var name = req.params.name;
+  var list = tweetBank.find( {name: name} );
+  res.render( 'index', { tweets: list, showForm: true});
+});
+
 
 module.exports = router;
