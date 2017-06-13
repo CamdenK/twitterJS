@@ -97,6 +97,7 @@
     "etag": "~1.8.0",
     "finalhandler": "~1.0.3",
     "fresh": "0.5.0",
+    "lodash": "^4.17.4",
     "merge-descriptors": "1.0.1",
     "methods": "~1.1.2",
     "on-finished": "~2.3.0",
@@ -189,7 +190,7 @@
     "url": "git+https://github.com/expressjs/express.git"
   },
   "scripts": {
-  	"start": "nodemon app.js",
+    "start": "nodemon app.js",
     "test": "mocha --require test/support/env --reporter spec --bail --check-leaks test/ test/acceptance/",
     "test-ci": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- --require test/support/env --reporter spec --check-leaks test/ test/acceptance/",
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --require test/support/env --reporter dot --check-leaks test/ test/acceptance/",
